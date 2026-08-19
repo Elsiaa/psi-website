@@ -18,6 +18,7 @@
     <div class="nav__links">
       <a href="#services">Services</a>
       <a href="#projects">Previous Projects</a>
+      <a href="#gallery">Gallery</a>
       <a href="#reviews">Reviews</a>
       <a href="tel:5703388774">570-338-8PSI (774)</a>
       <a class="nav__cta" href="contact.html">Get a Quote</a>
@@ -281,6 +282,38 @@
     </div>
   </section>
 
+  <!-- ===================== PHOTO GALLERY ===================== -->
+  <section class="section section--navy" id="gallery">
+    <div class="section__inner">
+      <p class="eyebrow eyebrow--accent">Our Work</p>
+      <h2 class="section__title">Project Gallery</h2>
+      <p class="lede">130 photos from the PSI portfolio &mdash; finished interiors and exteriors, matched before-and-after sets, and work in progress on active sites.</p>
+
+      <div class="gallery__filters" id="galleryFilters" role="tablist" aria-label="Gallery categories">
+        <button class="gallery__filter is-active" data-cat="all">All</button>
+        <button class="gallery__filter" data-cat="best">Top Picks</button>
+        <button class="gallery__filter" data-cat="interiors">Interiors</button>
+        <button class="gallery__filter" data-cat="exteriors">Exteriors</button>
+        <button class="gallery__filter" data-cat="beforeafter">Before &amp; After</button>
+        <button class="gallery__filter" data-cat="progress">In Progress</button>
+      </div>
+
+      <div class="gallery__grid" id="galleryGrid"></div>
+      <div class="gallery__more-wrap"><button class="btn gallery__more" id="galleryMore">Show More Photos</button></div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+    <button class="lightbox__arrow lightbox__arrow--prev" id="lightboxPrev" aria-label="Previous photo">&larr;</button>
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" id="lightboxImg" alt="">
+      <figcaption class="lightbox__caption"><span id="lightboxCaption"></span><span class="lightbox__counter" id="lightboxCounter"></span></figcaption>
+    </figure>
+    <button class="lightbox__arrow lightbox__arrow--next" id="lightboxNext" aria-label="Next photo">&rarr;</button>
+  </div>
+
   <!-- ===================== GOOGLE REVIEWS ===================== -->
   <section class="section section--white" id="reviews">
     <div class="section__inner">
@@ -325,6 +358,8 @@
   <script src="assets/hero-sequence/frames-manifest.js"></script>
   <script src="js/hero.js" defer></script>
   <script src="data/projects.js"></script>
+  <script src="data/gallery.js"></script>
+  <script src="js/gallery.js" defer></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/main.js" defer></script>
