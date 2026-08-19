@@ -16,7 +16,7 @@
   <nav class="nav" id="topNav" aria-label="Primary">
     <a class="nav__brand" href="index.html">PSI<small>Construction Services</small></a>
     <div class="nav__links">
-      <a href="#work">Work</a>
+      <a href="#overview">What We Do</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#walkthrough">How We Build</a>
       <a href="#gallery">Gallery</a>
@@ -28,7 +28,7 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#work"><small>01</small>Selected Work</a>
+    <a href="#overview"><small>01</small>What We Do</a>
     <a href="#capabilities"><small>02</small>Capabilities</a>
     <a href="#walkthrough"><small>03</small>How We Build</a>
     <a href="#map"><small>04</small>Where We&rsquo;ve Built</a>
@@ -58,7 +58,7 @@
         Northeastern Pennsylvania &mdash; from single-room remodels to the ground-up build you&rsquo;re looking at.</p>
         <div class="hero__actions">
           <a class="btn" href="contact.html">Get a Quote</a>
-          <a class="btn btn--ghost on-dark" href="#work" style="border-color:rgba(255,255,255,0.5);color:#fff">See the Work</a>
+          <a class="btn btn--ghost on-dark" href="#gallery" style="border-color:rgba(255,255,255,0.5);color:#fff">See the Work</a>
         </div>
         <div class="hero__scrollcue" aria-hidden="true">
           <span class="hero__scrollcue-label">Scroll</span>
@@ -94,58 +94,57 @@
     </div>
   </div>
 
-  <!-- ===================== SELECTED WORK ===================== -->
-  <section class="section" id="work">
+  <!-- ===================== OPENER: WHAT WE DO ===================== -->
+  <section class="section" id="overview">
     <div class="section__inner">
       <div class="section__head reveal">
-        <p class="eyebrow eyebrow--red">Selected Work</p>
-        <h2 class="section__title">The proof is standing.</h2>
+        <p class="eyebrow eyebrow--red">Welcome to PSI</p>
+        <h2 class="section__title">From a single bathroom to a ground-up build.</h2>
         <hr class="rule">
-        <p class="lede">Every claim on this page has an address. Start with the residence from the
-        opening aerial &mdash; then drag the before-and-after sets.</p>
+        <p class="lede">At PSI Construction Services, we approach every project with the understanding
+        that we are working on something valuable &mdash; your home, your property, or your business.
+        Our standard stays the same at every scale: thoughtful planning, reliable execution, quality
+        materials, and an obsessive attention to the details that determine how a project ultimately
+        looks, feels, and lasts.</p>
       </div>
 
-      <article class="case reveal">
-        <div class="case__media">
-          <span class="case__badge">Featured &mdash; New Construction</span>
-          <img src="assets/keyframe-final-hero.png"
-               alt="Finished three-story residence at 424–426 Rutter Avenue, Kingston PA" loading="lazy">
-        </div>
-        <div>
-          <h3 class="case__title">424&ndash;426 Rutter Avenue<br>Kingston, PA</h3>
-          <p class="case__copy">A ground-up, three-story residence on the corner of Rutter Avenue and
-          Reynolds Street &mdash; the building featured in the aerial sequence at the top of this page.
-          Planned, permitted, and built by PSI from foundation through final finishes.</p>
-          <dl class="spec">
-            <div><dt>Type</dt><dd>New construction &mdash; 3-story residence</dd></div>
-            <div><dt>Size</dt><dd>4,752 sq ft</dd></div>
-            <div><dt>Zoning</dt><dd>Residential (R-1)</dd></div>
-            <div><dt>Code</dt><dd>2018 IRC / IBC</dd></div>
-          </dl>
-          <div class="case__links">
-            <a class="btn btn--dark" href="contact.html">Discuss a Similar Project</a>
-            <a class="textlink" href="assets/plans/424-426-Rutter-filed-plans.pdf" target="_blank" rel="noopener">View the filed plans (PDF)</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Before / After -->
-      <div class="ba reveal" id="beforeAfter">
-        <div class="ba__head">
-          <div>
-            <p class="eyebrow eyebrow--red" style="margin-bottom:8px">Before &amp; After</p>
-            <h3>Drag the line. Same address, before and after PSI.</h3>
-          </div>
-          <div class="ba__tabs" id="baTabs" role="tablist" aria-label="Before and after sets"></div>
-        </div>
-        <div class="ba__frame" id="baFrame">
-          <img class="ba__img ba__img--before" id="baBefore" alt="Before">
-          <img class="ba__img ba__img--after" id="baAfter" alt="After">
-          <div class="ba__divider" id="baDivider"><span class="ba__handle">&#8596;</span></div>
-          <span class="ba__label ba__label--before">Before</span>
-          <span class="ba__label ba__label--after">After</span>
-        </div>
-        <p class="ba__caption" id="baCaption"></p>
+      <div class="build-grid reveal">
+        <a class="build-grid__item" href="#svc-residential">
+          <h3>Ground-Up New Home Construction</h3>
+          <p>Single-family builds, foundation through final finishes.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-residential">
+          <h3>Home Additions</h3>
+          <p>Full additions including plumbing and electrical.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-residential">
+          <h3>Whole-Home Renovations &amp; Remodels</h3>
+          <p>Gut and finish work on existing houses.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-residential">
+          <h3>Basement Build-Outs &amp; Finishing</h3>
+          <p>Converting unfinished lower levels into fully usable living space.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-kb">
+          <h3>Kitchen &amp; Bathroom Remodels</h3>
+          <p>Complete renovations, relocations, and new builds within existing space.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-structure">
+          <h3>Concrete &amp; Foundation Work</h3>
+          <p>Footings, foundations, slabs, and flatwork.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-structure">
+          <h3>Framing &amp; Structural Carpentry</h3>
+          <p>Including engineered floor and roof truss packages.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-maintenance">
+          <h3>Repairs &amp; Property Maintenance</h3>
+          <p>For landlords, property managers, and multi-property organizations.</p>
+        </a>
+        <a class="build-grid__item" href="#svc-bid">
+          <h3>Institutional &amp; Public Bid Work</h3>
+          <p>PennBid and county vendor-list projects, plus architect bid lists.</p>
+        </a>
       </div>
 
       <!-- Gallery entry tiles -->
@@ -162,6 +161,12 @@
           <img src="assets/photos/thumbs/PSI_Exterior_Twilight_Facade_Windows_01.jpg" alt="Twilight facade of a PSI-built home" loading="lazy">
           <span class="tile__label">Exteriors <small>17 photos &rarr;</small></span>
         </a>
+      </div>
+
+      <div class="next-step reveal">
+        <a class="btn" href="contact.html">Get a Quote</a>
+        <a class="btn btn--ghost" href="#walkthrough">See How We Build</a>
+        <p class="next-step__hint">Full capability details below &mdash; every service opens into the complete scope.</p>
       </div>
     </div>
   </section>
@@ -522,7 +527,7 @@
       </div>
       <div class="footer__col">
         <p class="eyebrow">Explore</p>
-        <a href="#work">Selected Work</a><br>
+        <a href="#overview">What We Do</a><br>
         <a href="#capabilities">Capabilities</a><br>
         <a href="#walkthrough">How We Build</a><br>
         <a href="#gallery">Gallery</a>
