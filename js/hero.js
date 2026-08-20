@@ -41,7 +41,7 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   // ------------------------------------------------------------------
-  // Reduced motion: shortest respectful path — show the finished
+  // Reduced motion: shortest respectful path, show the finished
   // architectural composition, no scrub, no pin.
   // ------------------------------------------------------------------
   if (reducedMotion.matches) {
@@ -244,7 +244,7 @@
   // Boot
   // ------------------------------------------------------------------
   if (N === 0) {
-    // Manifest missing — leave the poster; nothing else to do.
+    // Manifest missing, leave the poster; nothing else to do.
     if (loader) loader.remove();
     return;
   }

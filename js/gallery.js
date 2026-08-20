@@ -1,5 +1,5 @@
 /* ============================================================
-   PSI Photo Gallery — filterable grid + lightbox
+   PSI Photo Gallery: filterable grid + lightbox
    Data: window.PSI_GALLERY (data/gallery.js), generated from the
    PSI photo library. Thumbs in assets/photos/thumbs/, full-size
    in assets/photos/.
@@ -18,7 +18,7 @@
   var visibleCount = PAGE;
   var current = [];            // photos matching the active filter
 
-  /* "PSI_Bathroom_GreenTile_WalkInShower_01.jpg" → "Bathroom — Green Tile, Walk In Shower" */
+  /* "PSI_Bathroom_GreenTile_WalkInShower_01.jpg" → "Bathroom: Green Tile, Walk In Shower" */
   function caption(file) {
     var name = file.replace(/\.jpg$/i, "").replace(/^PSI_/, "").replace(/_0?\d+$/, "");
     var parts = name.split("_").map(function (p) {
@@ -28,7 +28,7 @@
       }
       return p.replace(/([a-z])([A-Z0-9])/g, "$1 $2");
     }).filter(Boolean);
-    return parts.length > 1 ? parts[0] + " — " + parts.slice(1).join(", ") : parts[0];
+    return parts.length > 1 ? parts[0] + ": " + parts.slice(1).join(", ") : parts[0];
   }
 
   function applyFilter(cat) {

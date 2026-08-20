@@ -1,6 +1,6 @@
 /* ============================================================
-   PSI Photo Gallery — manifest generated from the PSI photo
-   library (PSI-Photos, folders 01–05). Categories mirror the
+   PSI Photo Gallery manifest generated from the PSI photo
+   library (PSI-Photos, folders 01-05). Categories mirror the
    library structure documented in _INDEX.txt.
    ============================================================ */
 window.PSI_GALLERY = [

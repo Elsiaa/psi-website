@@ -1,5 +1,5 @@
 /* ============================================================
-   PSI Construction — site behaviour
+   PSI Construction site behaviour
    - Nav: transparent over hero, solid after; mobile menu
    - Scroll reveals (IntersectionObserver, reduced-motion aware)
    - Walkthrough: scroll-linked chapter media
@@ -176,7 +176,7 @@
           <p class="carousel__loc">${p.city}</p>
           ${p.type ? `<p class="carousel__type">${p.type}</p>` : ""}
           ${p.desc ? `<p class="carousel__desc">${p.desc}</p>` : ""}
-          <p class="carousel__caption">${p.caption || ""}${p.desc ? "" : " &mdash; PSI portfolio photography"}</p>
+          <p class="carousel__caption">${p.caption || ""}${p.desc ? "" : ", PSI portfolio photography"}</p>
           ${p.plans ? `<a class="carousel__plans" href="${p.plans}" target="_blank" rel="noopener">View filed plans (PDF)</a>` : ""}
         </div>`;
       track.appendChild(slide);
@@ -204,7 +204,7 @@
       rows[i].scrollIntoView({ block: "nearest", behavior: reducedMotion ? "auto" : "smooth" });
 
       track.style.transform = `translateX(-${i * 100}%)`;
-      counter.textContent = `${i + 1} / ${projects.length} — ${p.name}`;
+      counter.textContent = `${i + 1} / ${projects.length} · ${p.name}`;
     }
 
     function focusPin(i) {
@@ -236,7 +236,7 @@
       rest: "Unbelievable work, could not recommend enough! As always, things come up in projects, new design ideas, etc. Everything was meticulously planned out and executed to perfection. Great folks to work with and most of all, honest and stand behind their work!" },
     { author: "Mushkie Schaeffer", stars: 5,
       hook: "The finished sauna is both functional and spa-like.",
-      rest: "We had a seamless experience working with PSI on our custom home sauna. Although this was their first sauna project, they proved confidence and execution in their build — due to their research in providing us with the best materials for performance and visuals. We highly recommend them to anyone looking for an in-home sauna room that looks crafted and state-of-the-art!" },
+      rest: "We had a seamless experience working with PSI on our custom home sauna. Although this was their first sauna project, they proved confidence and execution in their build, due to their research in providing us with the best materials for performance and visuals. We highly recommend them to anyone looking for an in-home sauna room that looks crafted and state-of-the-art!" },
     { author: "Mikaela", stars: 4,
       hook: "We were extremely impressed with the tile work for the tub area.",
       rest: "Great price. PSI came referred to us through friends in the NEPA area. They renovated our guest bath for us in a matter of a few weeks. They were communicative and worked with us to achieve an on-time completion date." },

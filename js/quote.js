@@ -1,5 +1,5 @@
 /* ============================================================
-   PSI Quote Request Questionnaire — engine
+   PSI Quote Request Questionnaire engine
    Guided, branching, multiple-choice flow per the provided spec:
    - Q0 project-type gateway routes into one of 10 flows
    - "Other / Need guidance" always available as a fallback
@@ -94,7 +94,7 @@
         state.flowKey = opt.flow;
         state.stage = "flow";
       } else {
-        // "Multiple of the above" / "Not sure yet" — straight to intake
+        // "Multiple of the above" / "Not sure yet" go straight to intake
         state.flowKey = null;
         state.stage = "intake";
       }
@@ -143,9 +143,9 @@
   function renderIntake() {
     const total = totalSteps();
     root.appendChild(progressBlock(total, total, state.flowKey
-      ? `Last step — Question ${total} of ${total}`
-      : "Last step — how do we reach you?"));
-    root.appendChild(el("h3", "quote__q", "Almost done — contact details"));
+      ? `Last step: Question ${total} of ${total}`
+      : "Last step: how do we reach you?"));
+    root.appendChild(el("h3", "quote__q", "Almost done: contact details"));
 
     const form = el("form", "quote__form");
     DATA.intake.forEach(f => {
@@ -213,13 +213,13 @@
   function buildSummary() {
     const flow = state.flowKey ? DATA.flows[state.flowKey] : null;
     const lines = [];
-    lines.push("PSI CONSTRUCTION — QUOTE REQUEST");
+    lines.push("PSI CONSTRUCTION QUOTE REQUEST");
     lines.push("Project type: " + (flow ? flow.title : state.gatewayChoice));
     lines.push("");
-    lines.push("— Project details —");
+    lines.push("PROJECT DETAILS");
     state.answers.forEach(a => lines.push(a.q + "\n  → " + a.a));
     lines.push("");
-    lines.push("— Contact —");
+    lines.push("CONTACT");
     const labels = {
       name: "Full name", email: "Email", phone: "Phone", contactMethod: "Preferred contact",
       address: "Project address", bestTime: "Best time to reach", heard: "How they heard about PSI",
@@ -234,15 +234,15 @@
   function renderDone() {
     const summary = buildSummary();
     const flow = state.flowKey ? DATA.flows[state.flowKey] : null;
-    const subject = "Quote Request — " + (flow ? flow.title : state.gatewayChoice) +
-      (state.intake.name ? " — " + state.intake.name : "");
+    const subject = "Quote Request: " + (flow ? flow.title : state.gatewayChoice) +
+      (state.intake.name ? ", " + state.intake.name : "");
 
     const done = el("div", "quote__done");
     done.appendChild(el("h3", null, "Here's your request"));
     const p = el("p", "body-copy");
     p.style.margin = "0 auto 18px";
     p.textContent = "Review the summary below, then send it to us. Your email app will open pre-filled" +
-      (state.intake.photos ? " — please attach your selected photos before sending." : ".");
+      (state.intake.photos ? ". Please attach your selected photos before sending." : ".");
     done.appendChild(p);
     root.appendChild(done);
 
