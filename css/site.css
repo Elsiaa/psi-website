@@ -13,6 +13,7 @@
   --muted: #70706c;
   --accent: #1e3a52;          /* matte navy — CTAs and key highlights only */
   --accent-dark: #15293b;
+  --pin-red: #d60000;         /* PSI logo red — map pins only */
   --hairline: rgba(26, 26, 26, 0.1);
   --hero-scroll-length: 320vh;
 }
@@ -460,27 +461,27 @@ details[open] .svc__summary::after { content: "\2212"; }
 /* The job whose photograph is on screen: bigger, lit, and it stays that
    way so it reads as "this one — click me". */
 .pin--active {
-  background: var(--accent);
+  background: var(--pin-red);
   transform: rotate(-45deg) scale(1.75);
-  box-shadow: 0 0 0 4px rgba(30,58,82,0.35), 0 0 16px 5px rgba(30,58,82,0.55), 0 2px 8px rgba(0,0,0,0.45);
+  box-shadow: 0 0 0 4px rgba(214,0,0,0.30), 0 0 16px 5px rgba(214,0,0,0.55), 0 2px 8px rgba(0,0,0,0.45);
   border-color: #fff;
   z-index: 400;
   animation: pinGlow 1.9s ease-in-out infinite;
 }
 @keyframes pinGlow {
-  0%, 100% { box-shadow: 0 0 0 4px rgba(30,58,82,0.35), 0 0 14px 4px rgba(30,58,82,0.5), 0 2px 8px rgba(0,0,0,0.45); }
-  50%      { box-shadow: 0 0 0 6px rgba(30,58,82,0.25), 0 0 22px 8px rgba(30,58,82,0.65), 0 2px 8px rgba(0,0,0,0.45); }
+  0%, 100% { box-shadow: 0 0 0 4px rgba(214,0,0,0.30), 0 0 14px 4px rgba(214,0,0,0.45), 0 2px 8px rgba(0,0,0,0.45); }
+  50%      { box-shadow: 0 0 0 6px rgba(214,0,0,0.20), 0 0 22px 8px rgba(214,0,0,0.70), 0 2px 8px rgba(0,0,0,0.45); }
 }
 @media (prefers-reduced-motion: reduce) { .pin--active { animation: none; } }
-.pin--office { background: var(--accent); border-radius: 50%; transform: none; }
+.pin--office { background: var(--pin-red); border-radius: 50%; transform: none; }
 
 /* Case-study pins: projects with a photo gallery behind them. Visually
    distinct so it is obvious which dots on the map are clickable. */
 .pin--case {
-  background: var(--accent);
-  box-shadow: 0 1px 6px rgba(0,0,0,0.4), 0 0 0 3px rgba(30,58,82,0.3);
+  background: var(--pin-red);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.4), 0 0 0 3px rgba(214,0,0,0.28);
 }
-.pin--case.pin--active { box-shadow: 0 1px 8px rgba(0,0,0,0.5), 0 0 0 6px rgba(30,58,82,0.25); }
+.pin--case.pin--active { box-shadow: 0 1px 8px rgba(0,0,0,0.5), 0 0 0 6px rgba(214,0,0,0.22); }
 
 /* Button inside a map popup that jumps the carousel to that job */
 .case__open {
