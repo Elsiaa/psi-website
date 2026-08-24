@@ -66,7 +66,7 @@
     const m = L.marker([p.lat, p.lng], { icon: pinIcon(false, hasCase(p)) }).addTo(map);
     m.bindPopup(hasCase(p)
       ? `<strong>${p.name}</strong><br>` +
-        (p.type ? `<em style="color:#d60000;font-style:normal;font-weight:600">${p.type}</em><br>` : "") +
+        (p.type ? `<em style="color:#1e3a52;font-style:normal;font-weight:600">${p.type}</em><br>` : "") +
         `${p.city}` +
         (p.desc ? `<span style="display:block;margin-top:6px;max-width:240px">${p.desc}</span>` : "") +
         `<button class="case__open" data-project="${i}" data-open="${i}">See these photos &rarr;</button>`
