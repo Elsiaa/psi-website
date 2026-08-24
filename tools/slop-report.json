@@ -1,0 +1,187 @@
+{
+ "pages": {
+  "additions/index.html": {
+   "words": 280,
+   "cliches": {
+    "meticulous": 1,
+    "meticulously": 1
+   },
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 4,
+   "em_per_1k": 14.3,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 7,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "bathrooms/index.html": {
+   "words": 318,
+   "cliches": {},
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 5,
+   "em_per_1k": 15.7,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 9,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "commercial/index.html": {
+   "words": 257,
+   "cliches": {
+    "meticulous": 1,
+    "meticulously": 1
+   },
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 6,
+   "em_per_1k": 23.3,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 7,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "contact.html": {
+   "words": 220,
+   "cliches": {},
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 5,
+   "em_per_1k": 22.7,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 3,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "index.html": {
+   "words": 573,
+   "cliches": {
+    "meticulous": 1,
+    "meticulously": 1
+   },
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 16,
+   "em_per_1k": 27.9,
+   "placeholders": [
+    "placeholder",
+    "placeholder"
+   ],
+   "imgs": 18,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "kitchens/index.html": {
+   "words": 305,
+   "cliches": {
+    "meticulous": 1,
+    "meticulously": 1
+   },
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 6,
+   "em_per_1k": 19.7,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 9,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "new-construction/index.html": {
+   "words": 291,
+   "cliches": {},
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 5,
+   "em_per_1k": 17.2,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 8,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "renovations/index.html": {
+   "words": 298,
+   "cliches": {},
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 6,
+   "em_per_1k": 20.1,
+   "placeholders": [
+    "placeholder"
+   ],
+   "imgs": 9,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  },
+  "work.html": {
+   "words": 109,
+   "cliches": {},
+   "not_just_pattern": 0,
+   "nj_samples": [],
+   "em_dashes": 3,
+   "em_per_1k": 27.5,
+   "placeholders": [],
+   "imgs": 3,
+   "missing_alt": 1,
+   "generic_alt": 0,
+   "emoji": 0
+  }
+ },
+ "duplicate_paragraphs": {
+  "\u201cEverything was meticulously planned out and executed to perfection.\u201d": [
+   "additions/index.html",
+   "commercial/index.html",
+   "kitchens/index.html"
+  ],
+  "Tell us the basics \u2014 a real person replies. No spam, no obligation.": [
+   "additions/index.html",
+   "bathrooms/index.html",
+   "commercial/index.html",
+   "index.html",
+   "kitchens/index.html",
+   "new-construction/index.html",
+   "renovations/index.html"
+  ],
+  "Your email app should have opened with everything filled in \u2014 just press send. Prefer to talk? Call us below.": [
+   "additions/index.html",
+   "bathrooms/index.html",
+   "commercial/index.html",
+   "index.html",
+   "kitchens/index.html",
+   "new-construction/index.html",
+   "renovations/index.html"
+  ],
+  "The bosses are super professional and detailed with what goes into each job. Great communication and great work\u2026 Worth e": [
+   "bathrooms/index.html",
+   "index.html"
+  ],
+  "\u201cCouldn\u2019t be happier with the work, honesty and professionalism.\u201d": [
+   "commercial/index.html",
+   "new-construction/index.html"
+  ],
+  "They handled a full home remodel and finished our basement, and the results are absolutely fantastic\u2026 the pricing was by": [
+   "index.html",
+   "kitchens/index.html"
+  ]
+ }
+}
