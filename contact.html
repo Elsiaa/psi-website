@@ -6,9 +6,9 @@
   <title>Get a Quote — PSI Construction</title>
   <meta name="description" content="Contact PSI Construction for a free quote consultation — 570-338-8PSI (774), Kingston, PA.">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="css/site.css?v=ba082d7b">
+  <link rel="stylesheet" href="css/site.css?v=fb2">
 </head>
-<body style="background: var(--paper)">
+<body class="has-stickybar" style="background: var(--paper)">
 
   <nav class="nav nav--solid" aria-label="Primary">
     <a class="nav__brand" href="index.html" aria-label="PSI Construction — home">
@@ -18,8 +18,8 @@
            alt="" aria-hidden="true" width="900" height="456">
     </a>
     <div class="nav__links">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#projects">Previous Projects</a>
+      <a href="index.html#need">Services</a>
+      <a href="work.html">Our Work</a>
       <a href="index.html#reviews">Reviews</a>
       <a href="tel:5703388774">570-338-8<span class="tel-psi">PSI</span> (774)</a>
       <a class="nav__cta" href="contact.html">Get a Quote</a>
@@ -36,6 +36,63 @@
 
   <main class="section" style="padding-top:40px">
     <div class="section__inner">
+      <div class="quote-panel" style="max-width:none;margin-bottom:18px">
+        <p class="eyebrow eyebrow--red" style="color:var(--accent)">Quick quote &mdash; 2 minutes</p>
+        <h2 style="margin:0 0 6px;font-size:clamp(21px,2.2vw,28px)">Tell us what you need</h2>
+        <p class="lede" style="font-size:15px;margin-bottom:20px">A real person replies. No spam, no obligation.</p>
+        <form class="lead" novalidate>
+          <div class="lead__row">
+            <div>
+              <label for="q-need">What do you need?</label>
+              <select id="q-need" name="need" required>
+                <option value="" selected disabled>Choose a project type&hellip;</option>
+                <option>Kitchen</option>
+                <option>Bathroom</option>
+                <option>Addition</option>
+                <option>Renovation</option>
+                <option>New Construction</option>
+                <option>Commercial</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="q-when">When are you looking to start?</label>
+              <select id="q-when" name="when">
+                <option>As soon as possible</option>
+                <option>Within 1&ndash;3 months</option>
+                <option>3&ndash;6 months out</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="q-where">Where is the project?</label>
+            <input id="q-where" name="where" type="text" autocomplete="address-level2" placeholder="Town or address">
+          </div>
+          <div>
+            <label for="q-notes">Tell us briefly what you&rsquo;re planning</label>
+            <textarea id="q-notes" name="notes"></textarea>
+          </div>
+          <div class="lead__row">
+            <div>
+              <label for="q-name">Name</label>
+              <input id="q-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="q-phone">Phone</label>
+              <input id="q-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div>
+            <label for="q-email">Email (optional)</label>
+            <input id="q-email" name="email" type="email" autocomplete="email">
+          </div>
+          <p class="lead__error" hidden></p>
+          <button class="btn btn--red btn--big" type="submit">Get My Quote</button>
+          <p class="lead__done" hidden>Your email app should have opened with everything filled in &mdash; just press send.</p>
+        </form>
+      </div>
+
       <div class="contact-grid">
 
         <!-- Box 1: Contact PSI -->
@@ -63,8 +120,8 @@
         <!-- Box 2: Get a Quote -->
         <div class="contact-box">
           <p class="eyebrow eyebrow--accent">Get a Quote</p>
-          <h2>Tell us what you&rsquo;re building</h2>
-          <p class="lede">A few quick multiple-choice questions so we can scope your project properly &mdash; every question has a &ldquo;need guidance&rdquo; option.</p>
+          <h2>Project planner (optional)</h2>
+          <p class="lede">Want a sharper first quote? This guided planner walks your project type step by step &mdash; every question has a &ldquo;need guidance&rdquo; option. Or just use the quick form / phone and we&rsquo;ll take it from there.</p>
           <div id="quoteApp"></div>
         </div>
 
@@ -94,5 +151,10 @@
 
   <script src="js/quote-data.js?v=2a0193af"></script>
   <script src="js/quote.js?v=742b7f01" defer></script>
+  <div class="stickybar" aria-label="Quick actions">
+    <a href="tel:5703388774">Call PSI</a>
+    <a href="#quoteApp">Project Planner</a>
+  </div>
+  <script src="js/funnel.js?v=fb2" defer></script>
 </body>
 </html>

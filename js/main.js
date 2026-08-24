@@ -20,6 +20,7 @@
     return Math.min(1, Math.max(0, -heroEl.getBoundingClientRect().top / runway));
   };
   const onScroll = () => {
+    if (nav.classList.contains("nav--static")) return; // fixed solid bar (inner pages)
     const heroEl = document.getElementById("hero");
     const threshold = heroEl ? heroEl.offsetHeight - window.innerHeight * 0.5 : 40;
     nav.classList.toggle("nav--solid", window.scrollY > threshold);

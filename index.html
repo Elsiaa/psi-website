@@ -3,15 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PSI Construction — Kingston, PA</title>
-  <meta name="description" content="PSI Construction Services — Built With Attention. Managed With Precision. Kingston, PA.">
+  <title>PSI Construction — Kingston &amp; Wilkes-Barre, PA</title>
+  <meta name="description" content="PSI Construction — kitchens, bathrooms, additions, renovations and complete builds in Kingston, Wilkes-Barre and Northeastern PA. Get a free quote.">
   <link rel="icon" href="data:,">
   <link rel="preload" as="image" href="assets/hero-sequence/frame-0001.webp">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <link rel="stylesheet" href="css/site.css?v=ba082d7b">
+  <link rel="stylesheet" href="css/site.css?v=fb2">
 </head>
-<body>
+<body class="has-stickybar">
 
   <nav class="nav" id="topNav" aria-label="Primary">
     <a class="nav__brand" href="index.html" aria-label="PSI Construction — home">
@@ -21,16 +19,16 @@
            alt="" aria-hidden="true" width="900" height="456">
     </a>
     <div class="nav__links">
-      <a href="#services">Services</a>
-      <a href="#projects">Previous Projects</a>
+      <a href="#need">Services</a>
+      <a href="work.html">Our Work</a>
       <a href="#reviews">Reviews</a>
       <a href="tel:5703388774">570-338-8<span class="tel-psi">PSI</span> (774)</a>
-      <a class="nav__cta" href="contact.html">Get a Quote</a>
+      <a class="nav__cta" href="#quote">Get a Quote</a>
     </div>
   </nav>
 
-  <!-- ===================== SCROLL-DRIVEN HERO (existing implementation) ===================== -->
-  <section class="hero" id="hero" aria-label="Cinematic aerial introduction">
+  <!-- ============ OPENER: scroll-controlled flyover of a real PSI build ============ -->
+  <section class="hero" id="hero" aria-label="Aerial flyover of a PSI-built residence">
     <div class="hero__viewport">
       <img class="hero__poster" id="heroPoster"
            src="assets/hero-sequence/frame-0001.webp"
@@ -39,11 +37,21 @@
       <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
 
       <div class="hero__overlay" id="heroOverlay">
-        <p class="hero__eyebrow">PSI Construction Services &mdash; Kingston, PA</p>
-        <h1 class="hero__title">Welcome to PSI</h1>
-        <p class="hero__tagline">Built With Attention. Managed With Precision.</p>
+        <p class="fhero__plan">A real PSI build &mdash; Kingston, PA</p>
+        <h1 class="hero__title">Build. Renovate. <em style="font-style:normal;color:var(--accent)">Improve.</em></h1>
+        <p class="hero__tagline">Kitchens, bathrooms, additions, full renovations and complete
+        builds &mdash; one team, in and around Kingston &amp; Wilkes-Barre, PA.</p>
+        <div class="hero__actions" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;pointer-events:auto">
+          <a class="btn btn--red btn--big" href="#quote">Get a Free Quote</a>
+          <a class="btn btn--white-ghost btn--big" href="#work">See Our Work</a>
+        </div>
+        <ul class="chips chips--stars">
+          <li>4.9 on Google</li>
+          <li>34 completed projects</li>
+          <li>Free quote consultation</li>
+        </ul>
         <div class="hero__scrollcue" aria-hidden="true">
-          <span class="hero__scrollcue-label">Scroll</span>
+          <span class="hero__scrollcue-label">Scroll to fly around it</span>
           <span class="hero__scrollcue-line"></span>
         </div>
       </div>
@@ -54,257 +62,271 @@
     </div>
   </section>
 
-  <!-- ===================== INTRODUCTION ===================== -->
-  <section class="section" id="about">
-    <div class="section__inner section__inner--narrow">
-      <p class="eyebrow eyebrow--accent">Introduction</p>
-      <h2 class="section__title">PSI Construction Services</h2>
-      <div class="body-copy">
-        <p>At PSI Construction Services, we approach every project with the understanding that we are
-        working on something valuable&mdash;your home, your property, or your business.</p>
-        <p>From a single bathroom renovation to a ground-up build, our standard remains the same:
-        thoughtful planning, reliable execution, quality materials, and an obsessive attention to the
-        details that determine how a project ultimately looks, feels, and lasts.</p>
+  <!-- ============ 1. WHAT DO YOU NEED? ============ -->
+  <section class="fsection bp-bg" id="need">
+    <div class="fsection__inner">
+      <div class="fsection__head reveal">
+        <h2 class="fsection__title">What do you need?</h2>
+        <p class="fsection__sub">Tap a project type &mdash; real PSI jobs, not stock photos.</p>
+        <div class="chalk" aria-hidden="true"></div>
       </div>
-      <dl class="facts">
-        <div><dt>Office</dt><dd>190 Wyoming St<br>Wilkes-Barre, PA 18705<small style="display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:4px">Visits available upon request</small></dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:5703388774">570-338-8<span class="tel-psi">PSI</span>&nbsp;(774)</a></dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:info@psiconstructionpa.com">info@psiconstructionpa.com</a></dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- ===================== SERVICES ===================== -->
-  <section class="section section--white" id="services">
-    <div class="section__inner">
-      <p class="eyebrow eyebrow--accent">Capabilities</p>
-      <h2 class="section__title">What We Build</h2>
-
-      <div class="build-grid">
-        <div class="build-grid__item"><h3>Ground-Up New Home Construction</h3><p>Single-family builds, foundation through final finishes.</p></div>
-        <div class="build-grid__item"><h3>Home Additions</h3><p>Full additions including plumbing and electrical.</p></div>
-        <div class="build-grid__item"><h3>Whole-Home Renovations &amp; Remodels</h3><p>Gut and finish work on existing houses.</p></div>
-        <div class="build-grid__item"><h3>Basement Build-Outs &amp; Finishing</h3><p>Converting unfinished lower levels into fully usable living space.</p></div>
-        <div class="build-grid__item"><h3>Concrete &amp; Foundation Work</h3><p>Footings, foundations, slabs, and flatwork.</p></div>
-        <div class="build-grid__item"><h3>Framing &amp; Structural Carpentry</h3><p>Including engineered floor and roof truss packages.</p></div>
-        <div class="build-grid__item"><h3>Bathroom &amp; Interior Room Remodels</h3><p>Complete renovations, relocations, and new builds within existing space.</p></div>
-        <div class="build-grid__item"><h3>Repairs &amp; Property Maintenance</h3><p>For landlords, property managers, and organizations with multiple properties.</p></div>
-        <div class="build-grid__item"><h3>Institutional &amp; Public Bid Work</h3><p>PennBid and county vendor-list projects, plus architect bid lists.</p></div>
-      </div>
-
-      <div style="margin-top:64px">
-        <p class="eyebrow eyebrow--accent">Services Overview</p>
-        <h2 class="section__title" style="font-size:clamp(24px,2.8vw,36px)">Built With Attention. Managed With Precision.</h2>
-
-        <details class="svc" open>
-          <summary class="svc__summary"><span class="svc__num">01</span><h3>Major Projects</h3></summary>
-          <div class="svc__body">
-            <h4>Home Renovations</h4>
-            <p class="lede">A successful renovation should make an existing home work better without losing what made it worth renovating in the first place.</p>
-            <p>PSI handles comprehensive home renovations involving multiple rooms, structural changes, new layouts, upgraded mechanical systems, finishes, and complete interior transformations.</p>
-            <p>We coordinate the different trades and phases of construction as one project, giving our clients a clear point of responsibility from planning through completion.</p>
-            <p>The result is a home that feels cohesive&mdash;not like a collection of separate renovations completed at different times.</p>
-            <p class="svc__pull">Full-home renovations. Thoughtfully planned. Properly executed.</p>
-
-            <h4>Home Additions</h4>
-            <p class="lede">Sometimes the right home simply needs more space.</p>
-            <p>PSI designs and builds additions that expand the functionality and value of an existing property while feeling like they were always part of the original home.</p>
-            <p>Whether you are adding bedrooms, expanding a kitchen, creating a family room, building another floor, or substantially increasing the home&rsquo;s footprint, we consider the entire property&mdash;not just the new square footage.</p>
-            <p>Structure, exterior architecture, interior flow, mechanical systems, natural light, and finishes are planned together so the transition between old and new feels intentional.</p>
-
-            <h4>New Construction</h4>
-            <p class="lede">Building from the ground up gives you an opportunity to get the details right from the beginning.</p>
-            <p>PSI manages new residential construction from early planning and site preparation through framing, systems, finishes, and final completion.</p>
-            <p>We work alongside architects, engineers, designers, subcontractors, suppliers, and owners to keep the many moving pieces of a new build organized and accountable.</p>
-            <p>Our goal is straightforward: build it correctly, communicate clearly, and deliver a finished property we are proud to put our name on.</p>
-
-            <h4>Large-Scale Home Remodels</h4>
-            <p class="lede">Large remodels require more than good craftsmanship. They require coordination.</p>
-            <p>When structural work, plumbing, electrical, HVAC, framing, millwork, flooring, finishes, and design are all happening within the same project, small communication failures become expensive problems.</p>
-            <p>PSI specializes in managing complex residential remodels as a unified construction process.</p>
-            <p>We maintain visibility across the project so that decisions made in one phase work with what comes next&mdash;reducing delays, unnecessary rework, and costly surprises.</p>
-
-            <h4>Basement Build-Outs &amp; Finishing</h4>
-            <p class="lede">A finished basement is one of the most cost-effective ways to add real, usable square footage to a home.</p>
-            <p>PSI builds out unfinished lower levels into living space that feels like part of the house rather than an afterthought&mdash;bedrooms, family rooms, home offices, gyms, playrooms, and full or half bathrooms.</p>
-            <p>Because basements introduce conditions the rest of the house does not, we address the fundamentals first: moisture control and waterproofing, insulation, ceiling height, egress requirements, mechanical and utility relocation, and code compliance.</p>
-            <p>Once the space is sound, we finish it to the same standard as any other floor of the home.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">02</span><h3>Structure, Concrete &amp; Framing</h3></summary>
-          <div class="svc__body">
-            <h4>Concrete &amp; Foundation Work</h4>
-            <p class="lede">Everything above the foundation depends on the foundation.</p>
-            <p>PSI performs concrete and foundation work including excavation coordination, footings, foundation walls, slabs, basement floors, garage pads, and exterior flatwork.</p>
-            <p>Elevations, drainage, waterproofing, reinforcement, and backfill are handled as part of the same scope rather than as separate afterthoughts, because problems at this stage are the most expensive problems to correct later.</p>
-            <p>We build foundations that are square, level, properly drained, and ready for the structure that goes on top of them.</p>
-
-            <h4>Framing &amp; Structural Carpentry</h4>
-            <p class="lede">Framing sets the accuracy of every trade that follows.</p>
-            <p>PSI provides framing and structural carpentry for new construction, additions, remodels, and structural alterations to existing buildings&mdash;including load-bearing modifications, beams, headers, and openings.</p>
-            <p>We work with engineered floor and roof truss packages, coordinating layout, ordering, delivery, and setting so that the structural package arrives correct and installs on schedule.</p>
-            <p>Straight walls, accurate dimensions, and correct rough openings are not details we leave to be corrected downstream.</p>
-            <p class="svc__pull">Get the structure right and everything after it goes easier.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">03</span><h3>Focused Renovations</h3></summary>
-          <div class="svc__body">
-            <h4>Bathroom Construction &amp; Remodeling</h4>
-            <p class="lede">Whether you have an outdated bathroom&mdash;or no bathroom at all&mdash;PSI can build the space around your needs.</p>
-            <p>We handle complete bathroom renovations as well as the creation and relocation of bathrooms, including plumbing relocation, framing, electrical, waterproofing, tile, fixtures, ventilation, cabinetry, and finishes.</p>
-            <p>Our team looks at the available space and determines how to use it intelligently rather than simply replacing what is already there.</p>
-            <p>From luxury primary bathrooms to compact powder rooms, office bathrooms, and commercial facilities, we focus on the same fundamentals: efficient layouts, durable construction, proper waterproofing, and clean finishes.</p>
-            <p>The same approach applies to individual interior rooms&mdash;bedrooms, offices, laundry rooms, closets, and living spaces&mdash;where a single well-executed room can change how the rest of the house functions.</p>
-            <p class="svc__pull">No bathroom? No problem. We can build one.</p>
-
-            <h4>Kitchen Renovations</h4>
-            <p class="lede">The kitchen is one of the most used and valuable spaces in a home. We take that responsibility seriously.</p>
-            <p>PSI approaches kitchen renovation around three priorities: layout, quality, and value.</p>
-            <p>We work with experienced designers to maximize available space, improve flow, increase useful storage, and create a kitchen that works for the way you actually live.</p>
-            <p>We source cabinetry, countertops, surfaces, fixtures, and finishes competitively so clients can invest their budget where it creates the greatest impact.</p>
-            <p>From practical family kitchens to complete luxury transformations, the objective is not simply to make the kitchen look better.</p>
-            <p class="svc__pull">It should work better, too.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">04</span><h3>Commercial Construction</h3></summary>
-          <div class="svc__body">
-            <h4>Commercial Framing</h4>
-            <p class="lede">Commercial construction depends on speed, organization, reliability, and the ability to coordinate work at scale.</p>
-            <p>PSI provides commercial framing with an emphasis on accurate execution, dependable scheduling, clear communication, and efficient coordination with the other trades operating on site.</p>
-            <p>We understand that on a large commercial project, our work is part of a much larger sequence. A contractor who falls behind or fails to communicate can affect everyone who follows.</p>
-            <p>Our teams are managed accordingly.</p>
-
-            <h4>Commercial Construction</h4>
-            <p class="lede">Commercial projects require a different level of coordination.</p>
-            <p>Multiple trades, changing conditions, deadlines, inspections, material deliveries, drawings, revisions, and client requirements all have to remain organized simultaneously.</p>
-            <p>PSI combines experienced construction management with custom technology that gives our team greater visibility into active projects.</p>
-            <p>We use technology to support the fundamentals of good construction&mdash;not replace them.</p>
-            <p>Project information, progress, outstanding items, documentation, and important details can be tracked and organized so our team knows what is happening and what needs to happen next.</p>
-            <p>This technology is integrated into the way we operate and comes at no additional cost to our clients.</p>
-            <p class="svc__pull">Better information. Better coordination. Better construction.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">05</span><h3>Multifamily Construction &amp; Renovation</h3></summary>
-          <div class="svc__body">
-            <p class="lede">Multifamily properties need to look good on day one&mdash;and continue performing long after the project is finished.</p>
-            <p>PSI builds and renovates multifamily properties with an emphasis on durability, efficient use of space, privacy, maintainability, and long-term ownership value.</p>
-            <p>We understand that rental properties experience significantly different wear than a private residence. Materials, fixtures, surfaces, layouts, and construction methods therefore need to be selected with real-world tenant use in mind.</p>
-            <p>At the same time, durability should not come at the expense of good design.</p>
-            <p>We work to create units that are attractive to tenants, efficient to maintain, resistant to unnecessary damage, and intelligently laid out to maximize usable square footage and privacy.</p>
-            <p>For owners and developers, that means thinking beyond construction cost alone.</p>
-            <p class="svc__pull">We build for the life of the property.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">06</span><h3>Repairs &amp; Property Maintenance</h3></summary>
-          <div class="svc__body">
-            <p class="lede">Owning property is not a one-time construction event. It is an ongoing responsibility.</p>
-            <p>PSI provides repair and maintenance services for landlords, property managers, and organizations responsible for multiple properties at once.</p>
-            <p>This includes turnover work between tenants, plumbing and electrical repairs, drywall and finish repair, flooring, doors and hardware, carpentry, bathroom and kitchen repairs, exterior work, and the recurring items that keep a building in good condition and in compliance.</p>
-            <p>Clients managing a portfolio need something different from a one-time contractor. They need a contractor who answers, shows up, understands the property, documents the work, and can handle a request today without a new introduction every time.</p>
-            <p>We have built our repair and maintenance operation around that expectation, and we support organizations with recurring needs across many locations&mdash;including residential group homes such as those operated by Keystone Human Services.</p>
-            <p class="svc__pull">One contractor. Many properties. Consistent standards.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">07</span><h3>Institutional &amp; Public Bid Work</h3></summary>
-          <div class="svc__body">
-            <p class="lede">Public and institutional work is held to a different standard&mdash;and it should be.</p>
-            <p>PSI participates in institutional and publicly bid construction, including projects issued through PennBid, county and municipal vendor lists, and architect-managed bid lists.</p>
-            <p>This work carries requirements that go well beyond price: complete and responsive bid submissions, prevailing wage and documentation compliance where applicable, insurance and bonding standards, defined schedules, inspection sequences, and formal reporting throughout the project.</p>
-            <p>We treat those requirements as part of the job rather than as an obstacle to it. Our project management and documentation practices are built to produce the paper trail these projects demand while the work itself stays on schedule.</p>
-            <p>For agencies, municipalities, institutions, and the architects representing them, that means a contractor who is straightforward to award, straightforward to administer, and accountable through closeout.</p>
-            <p class="svc__pull">Qualified. Responsive. Accountable through closeout.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">08</span><h3>Design &amp; Engineering</h3></summary>
-          <div class="svc__body">
-            <h4>Better Construction Starts Before Construction</h4>
-            <p class="lede">Many of the most expensive construction mistakes are decisions that should have been resolved before work began.</p>
-            <p>That is why PSI places significant emphasis on planning.</p>
-            <p>Depending on the project, we work with in-house resources as well as experienced engineers, architects, designers, and specialized professionals to develop the right solution before and during construction.</p>
-            <p>We are not interested in pushing unnecessary design costs onto our clients. We help determine where professional design and engineering create real value and then work to secure those services competitively.</p>
-            <p>The objective is simple:</p>
-            <p class="svc__pull">Make better decisions before they become expensive decisions.</p>
-          </div>
-        </details>
-
-        <details class="svc">
-          <summary class="svc__summary"><span class="svc__num">09</span><h3>Why PSI</h3></summary>
-          <div class="svc__body">
-            <h4>We Take Our Work Personally.</h4>
-            <p>Every PSI project is the product of a persistent attention to detail and a simple understanding:</p>
-            <p>To us, it is a construction project. To you, it may be your home, your investment, your business, or the property you depend on every day.</p>
-            <p>That distinction matters.</p>
-            <p>It is why we care about what is behind the walls as much as what is visible when the project is finished.</p>
-            <p>It is why we invest in planning, organization, engineering, design, technology, and experienced trades.</p>
-            <p>And it is why we are comfortable showing our work.</p>
-            <p>We take pride in what we build and show it at every opportunity because our finished projects are ultimately the strongest representation of PSI.</p>
-            <div class="why-banner">We take our work personally. And we build accordingly.</div>
-          </div>
-        </details>
+      <div class="cats reveal">
+        <a class="cat" href="kitchens/">
+          <span class="cat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 10h20"/><path d="M4 10v9h7v-9M13 10v9h7v-9"/><path class="acc" d="M6.5 14h2M15.5 14h2"/></svg></span>
+          <img src="assets/opt/580rutter-13.jpg" alt="Kitchen with island built by PSI" loading="lazy">
+          <span class="cat__label">Kitchens <span>&rarr;</span></span>
+        </a>
+        <a class="cat" href="bathrooms/">
+          <span class="cat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/><path class="acc" d="M9 9h6v6H9z"/></svg></span>
+          <img src="assets/opt/50reynolds-after-01-running.jpg" alt="Walk-in tiled shower with rain head built by PSI" loading="lazy">
+          <span class="cat__label">Bathrooms <span>&rarr;</span></span>
+        </a>
+        <a class="cat" href="additions/">
+          <span class="cat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V9l5-5 5 5v12z"/><path class="acc" d="M13 13h8v8h-8z" stroke-dasharray="2.5 2.5"/></svg></span>
+          <img src="assets/opt/417warren-27.jpg" alt="Second-storey addition by PSI" loading="lazy">
+          <span class="cat__label">Additions <span>&rarr;</span></span>
+        </a>
+        <a class="cat" href="renovations/">
+          <span class="cat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-6 9 6v13z"/><path class="acc" d="M8 21v-8h8v8M8 17h8"/></svg></span>
+          <img src="assets/opt/841nandy-30.jpg" alt="Fully renovated living space by PSI" loading="lazy">
+          <span class="cat__label">Renovations <span>&rarr;</span></span>
+        </a>
+        <a class="cat" href="new-construction/">
+          <span class="cat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 21h20M4 21V10l8-7 8 7v11"/><path class="acc" d="M8 21v-7M12 21v-7M16 21v-7"/></svg></span>
+          <img src="assets/opt/hero-900.jpg" alt="New three-story home built by PSI" loading="lazy">
+          <span class="cat__label">New Builds <span>&rarr;</span></span>
+        </a>
+        <a class="cat" href="commercial/">
+          <span class="cat__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V4h18v17M3 21h18"/><path d="M8 4v17M13 4v17M18 4v17M3 9h18M3 15h18"/><path class="acc" d="M13 15h5v6h-5z"/></svg></span>
+          <img src="assets/opt/139third-16.jpg" alt="Commercial bathroom built by PSI" loading="lazy">
+          <span class="cat__label">Commercial <span>&rarr;</span></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PREVIOUS PROJECTS ===================== -->
-  <section class="section" id="projects">
-    <div class="section__inner">
-      <p class="eyebrow eyebrow--accent">Previous Projects</p>
-      <h2 class="section__title">Where We&rsquo;ve Built</h2>
-      <p class="lede">34 projects across Kingston, Wilkes-Barre, West Pittston, and Exeter, PA. Click a pin on the map, or any photograph, to open that job.</p>
+  <!-- ============ 2. LOOK AT OUR WORK ============ -->
+  <section class="fsection fsection--dark bp-bg" id="work">
+    <div class="fsection__inner">
+      <div class="fsection__head reveal">
+        <h2 class="fsection__title">See what we build.</h2>
+        <p class="fsection__sub">Every photo is a real PSI job in Northeastern Pennsylvania.</p>
+        <div class="chalk" aria-hidden="true"></div>
+      </div>
+      <div class="workstrip reveal">
+        <figure>
+          <img src="assets/opt/580rutter-13.jpg" alt="Island kitchen in a full-gut renovation" loading="lazy">
+          <figcaption><strong>Full gut &mdash; duplex to single-family</strong>580 Rutter Ave, Kingston</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/opt/50reynolds-after-01-running.jpg" alt="Walk-in shower with rain head running" loading="lazy">
+          <figcaption><strong>Cramped stall &rarr; walk-in shower</strong>50 Reynolds St, Kingston</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/opt/841nandy-30.jpg" alt="Renovated interior with new finishes" loading="lazy">
+          <figcaption><strong>Home renovation &amp; basement finish</strong>841 Nandy Dr, Kingston</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/opt/417warren-27.jpg" alt="Second-storey addition exterior" loading="lazy">
+          <figcaption><strong>Second-storey addition</strong>417 Warren Ave, Kingston</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/opt/192james-after-01-overview.jpg" alt="Master bathroom built from an enclosed porch" loading="lazy">
+          <figcaption><strong>Porch &rarr; master bathroom</strong>192 James St, Kingston</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/opt/139third-16.jpg" alt="Commercial bathroom rebuild" loading="lazy">
+          <figcaption><strong>Commercial bathroom gut &mdash; two baths</strong>139 Third Ave, Kingston</figcaption>
+        </figure>
+      </div>
+      <div style="margin-top:22px" class="reveal">
+        <a class="btn btn--white-ghost" href="work.html">Open All 34 Projects on the Map &rarr;</a>
+      </div>
+    </div>
+  </section>
 
-      <div class="projects__layout">
-        <div id="projectMap" aria-label="Interactive map of PSI project locations"></div>
-        <div class="shots-wrap">
-          <div class="shots" id="shotWall" aria-label="Project photographs"></div>
-          <button class="shots__arrow shots__arrow--prev" id="shotPrev" aria-label="Previous photograph">&larr;</button>
-          <button class="shots__arrow shots__arrow--next" id="shotNext" aria-label="Next photograph">&rarr;</button>
+  <!-- ============ 3. BEFORE / AFTER ============ -->
+  <section class="fsection" id="beforeafter">
+    <div class="fsection__inner">
+      <div class="fsection__head reveal">
+        <h2 class="fsection__title">Before &rarr; after.</h2>
+        <p class="fsection__sub">Drag the line. Same room, same address.</p>
+        <div class="tape" aria-hidden="true">
+          <div class="tape__body"></div>
+          <div class="tape__marks"><span>0</span><span>12</span><span>24</span><span>36</span><span>48</span></div>
+          <div class="tape__tip"></div>
         </div>
       </div>
-      <p class="shots__hint" id="shotHint"></p>
-    </div>
-  </section>
-
-  <!-- ===================== GOOGLE REVIEWS ===================== -->
-  <section class="section section--white" id="reviews">
-    <div class="section__inner">
-      <p class="eyebrow eyebrow--accent">Google Reviews</p>
-      <h2 class="section__title">What Our Clients Say</h2>
-
-      <div class="reviews__track-wrap">
-        <div class="reviews__track" id="reviewsTrack"></div>
-      </div>
-
-      <div class="reviews__nav">
-        <div class="carousel__btns">
-          <button class="carousel__btn" id="reviewsPrev" aria-label="Previous reviews">&larr;</button>
-          <button class="carousel__btn" id="reviewsNext" aria-label="Next reviews">&rarr;</button>
+      <div class="ba reveal" data-sets='[
+        {"label":"Shower","b":"assets/opt/50reynolds-before-shower.jpg","a":"assets/opt/50reynolds-after-01-running.jpg","cap":"50 Reynolds St — a cramped corner stall rebuilt at nearly double the size by absorbing the closet next door."},
+        {"label":"Kitchen","b":"assets/opt/378rutter-early-01-1792ee8e.jpg","a":"assets/opt/378rutter-08.jpg","cap":"378 Rutter Ave — the kitchen before and after a whole-house fire rebuild."}]'>
+        <div class="ba__tabs"></div>
+        <div class="ba__frame">
+          <img class="ba__img ba__img--before" alt="Before">
+          <img class="ba__img ba__img--after" alt="After">
+          <div class="ba__divider"><span class="ba__handle">&#8596;</span></div>
+          <span class="ba__label ba__label--before">Before</span>
+          <span class="ba__label ba__label--after">Built by PSI</span>
         </div>
-        <a class="btn" href="https://www.google.com/maps/search/PSI+Construction+190+Wyoming+St+Wilkes-Barre+PA+reviews" target="_blank" rel="noopener">View All Reviews on Google</a>
+        <p class="ba__caption"></p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- ============ 4. WHY TRUST PSI ============ -->
+  <section class="fsection fsection--white" id="reviews">
+    <div class="fsection__inner">
+      <div class="fsection__head reveal">
+        <h2 class="fsection__title">Why people hire us.</h2>
+        <p class="fsection__sub">Genuine Google reviews &mdash; 4.9 average.</p>
+        <div class="chalk" aria-hidden="true"></div>
+      </div>
+
+      <figure class="rev-feature reveal">
+        <blockquote>&ldquo;Everything was meticulously planned out and executed to perfection.&rdquo;</blockquote>
+        <figcaption><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>Mendel Erlenwein &middot; Google Review</figcaption>
+      </figure>
+
+      <div class="rev-minis reveal">
+        <article class="rev-mini">
+          <div class="rev-mini__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="rev-mini__hook">&ldquo;The job was done and bathroom was usable in three days.&rdquo;</p>
+          <p class="rev-mini__text">The bosses are super professional and detailed with what goes into each job. Great communication and great work&hellip; Worth every penny working with these guys.</p>
+          <p class="rev-mini__author">Moshe Dahan<small>Guest/office bathroom remodel</small></p>
+        </article>
+        <article class="rev-mini">
+          <div class="rev-mini__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="rev-mini__hook">&ldquo;Quality work at an honest price.&rdquo;</p>
+          <p class="rev-mini__text">They handled a full home remodel and finished our basement, and the results are absolutely fantastic&hellip; the pricing was by far the best we found.</p>
+          <p class="rev-mini__author">Yossi Lasker<small>Full home remodel + basement</small></p>
+        </article>
+        <article class="rev-mini">
+          <div class="rev-mini__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="rev-mini__hook">&ldquo;Patient, transparent, communicative and very professional.&rdquo;</p>
+          <p class="rev-mini__text">Their pricing was very competitive, and they completed the project within the expected timeline they gave us&hellip; I would hire them again for future projects.</p>
+          <p class="rev-mini__author">Ben Berkovitz<small>Renovation + new build</small></p>
+        </article>
+      </div>
+
+      <div style="margin-top:20px" class="reveal">
+        <a class="btn btn--ghost" href="https://www.google.com/maps/search/PSI+Construction+190+Wyoming+St+Wilkes-Barre+PA+reviews" target="_blank" rel="noopener">Read Our Google Reviews &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. HOW IT WORKS ============ -->
+  <section class="fsection bp-bg" id="process">
+    <div class="fsection__inner">
+      <div class="fsection__head reveal">
+        <h2 class="fsection__title">Built right, from step one.</h2>
+        <div class="level" aria-hidden="true">
+          <div class="level__vial"><div class="level__bubble"></div></div>
+          <span class="level__label">Level</span>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step__num">01 &mdash; Plan</span>
+          <h3>Tell us what you need</h3>
+          <p>Two minutes &mdash; the short form below, or just call.</p>
+        </div>
+        <div class="step">
+          <span class="step__num">02 &mdash; Prepare</span>
+          <h3>Free quote consultation</h3>
+          <p>We talk through the project and look at the space.</p>
+        </div>
+        <div class="step">
+          <span class="step__num">03 &mdash; Price</span>
+          <h3>Clear plan &amp; price</h3>
+          <p>Options that fit your budget &mdash; no surprises.</p>
+        </div>
+        <div class="step">
+          <span class="step__num">04 &mdash; Build</span>
+          <h3>We build it</h3>
+          <p>One team from demolition through final finishes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. GET A QUOTE ============ -->
+  <section class="fsection fsection--white" id="quote">
+    <div class="fsection__inner">
+      <div class="fsection__head reveal">
+        <h2 class="fsection__title">Want us to look at your project?</h2>
+        <p class="fsection__sub">Tell us the basics &mdash; a real person replies. No spam, no obligation.</p>
+        <div class="chalk" aria-hidden="true"></div>
+      </div>
+      <div class="quote-panel nailed">
+        <form class="lead" novalidate>
+          <div>
+            <label for="q-need">What do you need?</label>
+            <select id="q-need" name="need" required>
+              <option value="" selected disabled>Choose a project type&hellip;</option>
+              <option>Kitchen</option>
+              <option>Bathroom</option>
+              <option>Addition</option>
+              <option>Renovation</option>
+              <option>New Construction</option>
+              <option>Commercial</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="lead__row">
+            <div>
+              <label for="q-where">Where is the project?</label>
+              <input id="q-where" name="where" type="text" autocomplete="address-level2" placeholder="Town or address">
+            </div>
+            <div>
+              <label for="q-when">When are you looking to start?</label>
+              <select id="q-when" name="when">
+                <option>As soon as possible</option>
+                <option>Within 1&ndash;3 months</option>
+                <option>3&ndash;6 months out</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="q-notes">Tell us briefly what you&rsquo;re planning</label>
+            <textarea id="q-notes" name="notes" placeholder="e.g. Gut and remodel our main bathroom, add a walk-in shower"></textarea>
+          </div>
+          <div class="lead__row">
+            <div>
+              <label for="q-name">Name</label>
+              <input id="q-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="q-phone">Phone</label>
+              <input id="q-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div>
+            <label for="q-email">Email (optional)</label>
+            <input id="q-email" name="email" type="email" autocomplete="email">
+          </div>
+          <p class="lead__error" hidden></p>
+          <button class="btn btn--red btn--big" type="submit">Get My Quote</button>
+          <p class="lead__done" hidden>Your email app should have opened with everything filled in &mdash; just press send. Prefer to talk? Call us below.</p>
+          <p class="lead__alt">Prefer to talk? <a href="tel:5703388774">570-338-8PSI (774)</a> &middot; Want a sharper first quote? <a href="contact.html">Answer the full project planner &rarr;</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="footer" id="contact">
     <div class="footer__inner">
       <div>
         <img class="footer__logo" src="assets/logo/psi-logo-white.png"
-             alt="PSI Construction" width="900" height="456">
+             alt="PSI Construction" width="900" height="456" loading="lazy">
         <p class="footer__tagline">Built With Attention. Managed With Precision.</p>
+      </div>
+      <div class="footer__col">
+        <p class="eyebrow">Explore</p>
+        <a href="work.html">Our Work &amp; Project Map</a><br>
+        <a href="contact.html">Project Planner</a><br>
+        <a href="#need">Services</a>
       </div>
       <div class="footer__col">
         <p class="eyebrow">Office</p>
@@ -315,16 +337,19 @@
         <p class="eyebrow">Contact</p>
         <a href="tel:5703388774">570-338-8<span class="tel-psi">PSI</span> (774)</a><br>
         <a href="mailto:info@psiconstructionpa.com">info@psiconstructionpa.com</a><br>
-        <a href="contact.html">Get a Quote &rarr;</a>
+        <a href="#quote">Get a Quote &rarr;</a>
       </div>
     </div>
   </footer>
 
+  <!-- Sticky mobile actions -->
+  <div class="stickybar" aria-label="Quick actions">
+    <a href="tel:5703388774">Call PSI</a>
+    <a href="#quote">Get a Quote</a>
+  </div>
+
   <script src="assets/hero-sequence/frames-manifest.js"></script>
   <script src="js/hero.js?v=cd66c788" defer></script>
-  <script src="data/projects.js?v=5f2c794e"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/main.js?v=b1976ab2" defer></script>
+  <script src="js/funnel.js?v=fb2" defer></script>
 </body>
 </html>
