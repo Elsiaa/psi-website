@@ -14,10 +14,12 @@
   <meta property="og:url" content="https://elsiaa.github.io/psi-website/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="assets/hero-sequence/frame-0001.webp">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=min1">
+<link rel="stylesheet" href="css/site.css?v=g1">
 </head>
 <body class="has-stickybar">
 
@@ -30,7 +32,7 @@
     </a>
     <div class="nav__links">
       <a href="#need">Services</a>
-      <a href="work.html">Our Work</a>
+      <a href="#work">Our Work</a>
       <a href="#reviews">Reviews</a>
       <a href="tel:5703388774">570-338-8<span class="tel-psi">PSI</span> (774)</a>
       <a class="nav__cta" href="#quote">Start a Project</a>
@@ -104,42 +106,24 @@
     </div>
   </section>
 
-  <!-- ============ 2. LOOK AT OUR WORK ============ -->
-  <section class="fsection fsection--dark" id="work">
+  <!-- ============ 2. THE MAP: 34 REAL PROJECTS ============ -->
+  <section class="fsection" id="work">
     <div class="fsection__inner">
       <div class="fsection__head reveal">
-        <h2 class="fsection__title">Real jobs. Real addresses.</h2>
-        <p class="fsection__sub">Every photograph is a PSI project. Open the map and you can walk any of them, demo to done.</p>
+        <h2 class="fsection__title">Where we&rsquo;ve built.</h2>
+        <p class="fsection__sub">34 projects across Kingston, Wilkes-Barre, West Pittston, and Exeter, PA.
+        Tap a pin, or any photograph, to walk that job &mdash; demo to done.</p>
       </div>
-      <div class="workstrip reveal">
-        <figure>
-          <img src="assets/opt/580rutter-13.jpg" alt="Island kitchen in a full-gut renovation" loading="lazy">
-          <figcaption><strong>Full gut &mdash; duplex to single-family</strong>580 Rutter Ave, Kingston</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/opt/50reynolds-after-01-running.jpg" alt="Walk-in shower with the rain head running" loading="lazy">
-          <figcaption><strong>Cramped stall &rarr; walk-in shower</strong>50 Reynolds St, Kingston</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/opt/841nandy-30.jpg" alt="Renovated interior with new finishes" loading="lazy">
-          <figcaption><strong>Home renovation &amp; basement finish</strong>841 Nandy Dr, Kingston</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/opt/417warren-27.jpg" alt="Second-storey addition exterior" loading="lazy">
-          <figcaption><strong>Second-storey addition</strong>417 Warren Ave, Kingston</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/opt/192james-after-01-overview.jpg" alt="Master bathroom built from an enclosed porch" loading="lazy">
-          <figcaption><strong>Porch &rarr; master bathroom</strong>192 James St, Kingston</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/opt/139third-16.jpg" alt="Commercial bathroom rebuild" loading="lazy">
-          <figcaption><strong>Commercial bathroom gut &mdash; two baths</strong>139 Third Ave, Kingston</figcaption>
-        </figure>
+
+      <div class="projects__layout">
+        <div id="projectMap" aria-label="Interactive map of PSI project locations"></div>
+        <div class="shots-wrap">
+          <div class="shots" id="shotWall" aria-label="Project photographs"></div>
+          <button class="shots__arrow shots__arrow--prev" id="shotPrev" aria-label="Previous photograph">&larr;</button>
+          <button class="shots__arrow shots__arrow--next" id="shotNext" aria-label="Next photograph">&rarr;</button>
+        </div>
       </div>
-      <div style="margin-top:22px" class="reveal">
-        <a class="btn btn--white-ghost" href="work.html">Open the Map &mdash; All 34 Projects &rarr;</a>
-      </div>
+      <p class="shots__hint" id="shotHint"></p>
     </div>
   </section>
 
@@ -172,26 +156,32 @@
       <div class="fsection__head reveal">
         <h2 class="fsection__title">In their words.</h2>
         <p class="fsection__sub">Verbatim from Google &mdash; the four-star one included.</p>
+        <a class="gbadge" href="https://www.google.com/maps/search/PSI+Construction+190+Wyoming+St+Wilkes-Barre+PA+reviews" target="_blank" rel="noopener" aria-label="PSI Construction on Google Reviews — 4.9 stars">
+          <svg class="gbadge__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.15-.4-4.64H24v8.78h11.84a10.12 10.12 0 0 1-4.39 6.64v5.52h7.1c4.16-3.83 6.55-9.47 6.55-16.3z"/><path fill="#34A853" d="M24 45.5c5.94 0 10.92-1.97 14.56-5.33l-7.1-5.52c-1.97 1.32-4.49 2.1-7.46 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7A21.99 21.99 0 0 0 24 45.5z"/><path fill="#FBBC05" d="M11.69 27.68a13.22 13.22 0 0 1 0-8.45v-5.7H4.34a22 22 0 0 0 0 19.85l7.35-5.7z"/><path fill="#EA4335" d="M24 10.16c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 3.58 29.93 1.5 24 1.5A21.99 21.99 0 0 0 4.34 13.53l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+          <span class="gbadge__name">Google Reviews</span>
+          <span class="gbadge__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <b class="gbadge__score">4.9</b>
+        </a>
       </div>
 
       <div class="rev-minis reveal">
         <article class="rev-mini">
-          <div class="rev-mini__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rev-mini__stars" aria-label="5 out of 5 stars"><svg class="rev-mini__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.15-.4-4.64H24v8.78h11.84a10.12 10.12 0 0 1-4.39 6.64v5.52h7.1c4.16-3.83 6.55-9.47 6.55-16.3z"/><path fill="#34A853" d="M24 45.5c5.94 0 10.92-1.97 14.56-5.33l-7.1-5.52c-1.97 1.32-4.49 2.1-7.46 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7A21.99 21.99 0 0 0 24 45.5z"/><path fill="#FBBC05" d="M11.69 27.68a13.22 13.22 0 0 1 0-8.45v-5.7H4.34a22 22 0 0 0 0 19.85l7.35-5.7z"/><path fill="#EA4335" d="M24 10.16c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 3.58 29.93 1.5 24 1.5A21.99 21.99 0 0 0 4.34 13.53l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="rev-mini__text">&ldquo;Unbelievable work, could not recommend enough! As always, things come up in projects, new design ideas, etc and they came through on every single detail without constantly trying to up the estimate. Everything was meticulously planned out and executed to perfection. Great folks to work with and most of all, honest and stand behind their work!&rdquo;</p>
           <p class="rev-mini__author">Mendel Erlenwein</p>
         </article>
         <article class="rev-mini">
-          <div class="rev-mini__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rev-mini__stars" aria-label="5 out of 5 stars"><svg class="rev-mini__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.15-.4-4.64H24v8.78h11.84a10.12 10.12 0 0 1-4.39 6.64v5.52h7.1c4.16-3.83 6.55-9.47 6.55-16.3z"/><path fill="#34A853" d="M24 45.5c5.94 0 10.92-1.97 14.56-5.33l-7.1-5.52c-1.97 1.32-4.49 2.1-7.46 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7A21.99 21.99 0 0 0 24 45.5z"/><path fill="#FBBC05" d="M11.69 27.68a13.22 13.22 0 0 1 0-8.45v-5.7H4.34a22 22 0 0 0 0 19.85l7.35-5.7z"/><path fill="#EA4335" d="M24 10.16c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 3.58 29.93 1.5 24 1.5A21.99 21.99 0 0 0 4.34 13.53l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="rev-mini__text">&ldquo;They handled a full home remodel and finished our basement, and the results are absolutely fantastic. The team was professional, efficient, and respectful of our home. The project moved along quickly, and the pricing was by far the best we found. If you&rsquo;re looking for quality work at an honest price, PSI Construction is the way to go.&rdquo;</p>
           <p class="rev-mini__author">Yossi Lasker<small>Full home remodel + basement</small></p>
         </article>
         <article class="rev-mini">
-          <div class="rev-mini__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rev-mini__stars" aria-label="5 out of 5 stars"><svg class="rev-mini__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.15-.4-4.64H24v8.78h11.84a10.12 10.12 0 0 1-4.39 6.64v5.52h7.1c4.16-3.83 6.55-9.47 6.55-16.3z"/><path fill="#34A853" d="M24 45.5c5.94 0 10.92-1.97 14.56-5.33l-7.1-5.52c-1.97 1.32-4.49 2.1-7.46 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7A21.99 21.99 0 0 0 24 45.5z"/><path fill="#FBBC05" d="M11.69 27.68a13.22 13.22 0 0 1 0-8.45v-5.7H4.34a22 22 0 0 0 0 19.85l7.35-5.7z"/><path fill="#EA4335" d="M24 10.16c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 3.58 29.93 1.5 24 1.5A21.99 21.99 0 0 0 4.34 13.53l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="rev-mini__text">&ldquo;Had these guys do my guest/office bathroom over in my house. The job was done and bathroom was usable in three days. The bosses are super professional and detailed with what goes into each job. Great communication and great work. They quoted me on window replacement and another bathroom remodel and I&rsquo;m going with them for both jobs.&rdquo;</p>
           <p class="rev-mini__author">Moshe Dahan<small>Guest/office bathroom</small></p>
         </article>
         <article class="rev-mini">
-          <div class="rev-mini__stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <div class="rev-mini__stars" aria-label="4 out of 5 stars"><svg class="rev-mini__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.15-.4-4.64H24v8.78h11.84a10.12 10.12 0 0 1-4.39 6.64v5.52h7.1c4.16-3.83 6.55-9.47 6.55-16.3z"/><path fill="#34A853" d="M24 45.5c5.94 0 10.92-1.97 14.56-5.33l-7.1-5.52c-1.97 1.32-4.49 2.1-7.46 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7A21.99 21.99 0 0 0 24 45.5z"/><path fill="#FBBC05" d="M11.69 27.68a13.22 13.22 0 0 1 0-8.45v-5.7H4.34a22 22 0 0 0 0 19.85l7.35-5.7z"/><path fill="#EA4335" d="M24 10.16c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 3.58 29.93 1.5 24 1.5A21.99 21.99 0 0 0 4.34 13.53l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
           <p class="rev-mini__text">&ldquo;Great price. PSI came referred to us through friends in the NEPA area. They renovated our guest bath for us in a matter of a few weeks. They were communicative and worked with us to achieve an on-time completion date and we were extremely impressed with the tile work for the tub area!&rdquo;</p>
           <p class="rev-mini__author">Mikaela<small>Guest bathroom renovation</small></p>
         </article>
@@ -334,6 +324,10 @@
 
   <script src="assets/hero-sequence/frames-manifest.js"></script>
   <script src="js/hero.js?v=cd66c788" defer></script>
+  <script src="data/projects.js?v=5f2c794e"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/main.js?v=b1976ab2" defer></script>
   <script src="js/funnel.js?v=fb2" defer></script>
 </body>
 </html>

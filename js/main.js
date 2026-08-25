@@ -383,6 +383,7 @@
   ];
 
   const rTrack = document.getElementById("reviewsTrack");
+  if (!rTrack) return; // homepage renders reviews statically
   reviews.forEach((r) => {
     const card = document.createElement("article");
     card.className = "review-card";

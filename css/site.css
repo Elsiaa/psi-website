@@ -1239,3 +1239,26 @@ body.has-stickybar { padding-bottom: 52px; }
 @media (min-width: 860px) { .rev-minis { grid-template-columns: 1fr 1fr; } }
 .rev-mini__text { font-size: 14.5px; line-height: 1.7; color: #3a3a37; }
 .rev-mini__author { margin-top: 4px; }
+
+/* ---------------- Google Reviews branding ---------------- */
+
+.gbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.gbadge__g { width: 20px; height: 20px; flex: 0 0 auto; }
+.gbadge__name { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; }
+.gbadge__stars { color: #FBBC04; font-size: 14px; letter-spacing: 2px; }
+.gbadge__score { font-size: 14px; font-weight: 700; }
+.gbadge:hover { border-color: rgba(26,26,26,0.3); }
+
+.rev-mini__stars { display: flex; align-items: center; gap: 8px; color: #FBBC04; }
+.rev-mini__g { width: 15px; height: 15px; flex: 0 0 auto; }
