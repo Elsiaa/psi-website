@@ -38,7 +38,11 @@
   const mapEl = document.getElementById("projectMap");
   if (!mapEl || !projects.length || typeof L === "undefined") return;
 
-  const map = L.map(mapEl, { scrollWheelZoom: false });
+  const COARSE = window.matchMedia("(pointer: coarse)").matches;
+  // On touch screens one-finger drag must scroll the PAGE, not pan the map —
+  // otherwise the map becomes a scroll trap. Two fingers pan and zoom
+  // (Leaflet's touchZoom follows the midpoint), one finger taps pins.
+  const map = L.map(mapEl, { scrollWheelZoom: false, dragging: !COARSE });
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -48,17 +52,18 @@
   // Those pins are styled differently and open a detail view.
   const hasCase = (p) => Array.isArray(p.gallery) && p.gallery.length > 0;
 
+  const PIN = COARSE ? 24 : 16;   // bigger touch targets on phones
   const pinIcon = (active, isCase) => L.divIcon({
     className: "",
-    html: `<div class="pin${active ? " pin--active" : ""}${isCase ? " pin--case" : ""}"></div>`,
-    iconSize: [16, 16],
-    iconAnchor: [8, 16]
+    html: `<div class="pin${active ? " pin--active" : ""}${isCase ? " pin--case" : ""}" style="width:${PIN}px;height:${PIN}px"></div>`,
+    iconSize: [PIN, PIN],
+    iconAnchor: [PIN / 2, PIN]
   });
 
   // Office marker (distinct, not part of the sync set)
   if (office) {
     L.marker([office.lat, office.lng], {
-      icon: L.divIcon({ className: "", html: '<div class="pin pin--office"></div>', iconSize: [16, 16], iconAnchor: [8, 8] })
+      icon: L.divIcon({ className: "", html: `<div class="pin pin--office" style="width:${PIN}px;height:${PIN}px"></div>`, iconSize: [PIN, PIN], iconAnchor: [PIN / 2, PIN / 2] })
     }).addTo(map).bindPopup(`<strong>${office.name}</strong><br>${office.address}<br><em>Visits available upon request</em>`);
   }
 
@@ -213,6 +218,26 @@
   ["pointerdown", "wheel", "touchstart", "keydown", "dblclick"].forEach((ev) =>
     map.getContainer().addEventListener(ev, holdMap, { passive: true })
   );
+
+  // Tell one-finger panners how to move the map, then get out of the way.
+  if (COARSE) {
+    const hintEl = document.createElement("div");
+    hintEl.className = "map-touchhint";
+    hintEl.textContent = "Use two fingers to move the map";
+    mapEl.appendChild(hintEl);
+    let hintTimer = null;
+    let startY = null;
+    mapEl.addEventListener("touchstart", (e) => {
+      startY = e.touches.length === 1 ? e.touches[0].clientY : null;
+    }, { passive: true });
+    mapEl.addEventListener("touchmove", (e) => {
+      if (e.touches.length !== 1 || startY === null) return;
+      if (Math.abs(e.touches[0].clientY - startY) < 12) return;
+      hintEl.classList.add("is-shown");
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(() => hintEl.classList.remove("is-shown"), 1400);
+    }, { passive: true });
+  }
 
   document.getElementById("shotPrev").addEventListener("click", () => nudge(-1));
   document.getElementById("shotNext").addEventListener("click", () => nudge(1));

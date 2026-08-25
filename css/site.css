@@ -1338,3 +1338,52 @@ body.has-stickybar { padding-bottom: 52px; }
 .facts-list--dark dd { color: rgba(255,255,255,0.72); }
 .facts-list--dark dd a { color: #a8c4dd; }
 .factline a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+
+/* ---------------- Map: bigger and touch-friendly on phones ---------------- */
+
+@media (max-width: 900px) {
+  #projectMap {
+    height: min(68svh, 640px);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+/* Two-finger hint, shown only when a one-finger pan is attempted */
+.map-touchhint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 800;
+  background: rgba(16, 18, 20, 0.85);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 12px 18px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+.map-touchhint.is-shown { opacity: 1; }
+
+/* Bigger controls and popup targets under touch */
+@media (pointer: coarse) {
+  .leaflet-touch .leaflet-control-zoom a,
+  .leaflet-control-zoom a {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    font-size: 20px !important;
+  }
+  .leaflet-popup-content { font-size: 14.5px; line-height: 1.5; margin: 14px 18px; }
+  .case__open { padding: 12px 18px; font-size: 13px; min-height: 44px; }
+  .leaflet-container a.leaflet-popup-close-button {
+    width: 34px; height: 34px; font: 22px/34px Tahoma, sans-serif;
+  }
+}
