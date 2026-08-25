@@ -48,6 +48,18 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
+  // Structural facts for documented jobs — shown in the pin popups and the
+  // case viewer in place of the shorter catalogue description.
+  const ENG_FACTS = {
+    "shower-closet-merge": "Shower footprint nearly doubled by absorbing the adjacent closet. New supply and waste lines. A usable walk-in where a shoulder-wide stall was.",
+    "duplex-to-single-family": "Two-unit duplex returned to single-family. Stripped to the framing throughout, re-framed, then tiled, decked and fitted out.",
+    "addition-and-first-floor": "Full second storey added over the original structure, with the first floor renovated under it.",
+    "porch-to-master-bath": "Enclosed porch converted to a master bathroom. New plumbing run inside the existing footprint \u2014 no addition needed.",
+    "garage-to-two-apartments": "Detached garage taken back to its block shell and rebuilt as two self-contained apartments: new slab, framing, stair, kitchens, bathrooms.",
+    "commercial-two-bath-gut": "Commercial two-bathroom gut \u2014 both rebuilt to spec."
+  };
+  const factFor = (p) => ENG_FACTS[p.id] || p.desc || "";
+
   // A project is a "case study" once it has a photo gallery attached.
   // Those pins are styled differently and open a detail view.
   const hasCase = (p) => Array.isArray(p.gallery) && p.gallery.length > 0;
@@ -73,7 +85,7 @@
       ? `<strong>${p.name}</strong><br>` +
         (p.type ? `<em style="color:#1e3a52;font-style:normal;font-weight:600">${p.type}</em><br>` : "") +
         `${p.city}` +
-        (p.desc ? `<span style="display:block;margin-top:6px;max-width:240px">${p.desc}</span>` : "") +
+        (factFor(p) ? `<span style="display:block;margin-top:6px;max-width:240px">${factFor(p)}</span>` : "") +
         `<button class="case__open" data-project="${i}" data-open="${i}">See these photos &rarr;</button>`
       : `<strong>${p.name}</strong><br>${p.city}`);
     m.on("click", () => select(i, "map"));
@@ -299,7 +311,7 @@
     vReturn = document.activeElement;
     viewer.querySelector(".viewer__eyebrow").textContent = p.type || "Previous project";
     viewer.querySelector(".viewer__title").textContent = p.name;
-    viewer.querySelector(".viewer__desc").textContent = p.desc || "";
+    viewer.querySelector(".viewer__desc").textContent = factFor(p);
     vRail.innerHTML = list.map((g) => `
       <figure class="viewer__fig">
         <div class="viewer__imgwrap">
