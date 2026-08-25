@@ -1225,3 +1225,17 @@ body.has-stickybar { padding-bottom: 52px; }
   .nav__links a:not(.nav__cta) { display: none; }
   .nav__links { gap: 10px; }
 }
+
+
+/* Quiet fact line under the hero actions (replaces chip row) */
+.factline {
+  margin: 16px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Documentary review grid: 2x2 on desktop, single column on phones */
+@media (min-width: 860px) { .rev-minis { grid-template-columns: 1fr 1fr; } }
+.rev-mini__text { font-size: 14.5px; line-height: 1.7; color: #3a3a37; }
+.rev-mini__author { margin-top: 4px; }
