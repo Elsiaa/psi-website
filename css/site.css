@@ -506,7 +506,7 @@ details[open] .svc__summary::after { content: "\2212"; }
 body.viewer-lock { overflow: hidden; }
 
 .viewer__head { padding: clamp(16px, 3vh, 30px) clamp(20px, 5vw, 64px) 10px; color: #fff; max-width: 900px; }
-.viewer__eyebrow { margin: 0 0 6px; color: var(--accent); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.viewer__eyebrow { margin: 0 0 6px; color: #a8c4dd; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; }
 .viewer__title { margin: 0 0 6px; font-size: clamp(18px, 2.4vw, 26px); line-height: 1.2; }
 .viewer__desc { margin: 0; font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.72); }
 
@@ -531,7 +531,7 @@ body.viewer-lock { overflow: hidden; }
   padding: 3px 9px; border-radius: 2px; color: #fff;
 }
 .viewer__phase--before { background: rgba(29,39,51,0.92); }
-.viewer__phase--after  { background: var(--accent); }
+.viewer__phase--after  { background: var(--pin-red); }
 .viewer__cap {
   position: absolute; left: 0; right: 0; bottom: 0;
   padding: 54px 16px 14px;
@@ -1262,3 +1262,64 @@ body.has-stickybar { padding-bottom: 52px; }
 
 .rev-mini__stars { display: flex; align-items: center; gap: 8px; color: #FBBC04; }
 .rev-mini__g { width: 15px; height: 15px; flex: 0 0 auto; }
+
+
+/* ---------------- Case viewer: counter, phase timeline, finish jump ---------------- */
+
+.viewer__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px 18px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.viewer__count {
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.7);
+  min-width: 58px;
+}
+.viewer__phases { display: flex; gap: 2px 14px; flex-wrap: wrap; }
+.viewer__phases button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 8px 2px 6px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.viewer__phases button:hover { color: #fff; }
+.viewer__phases button.is-active { color: #fff; border-bottom-color: var(--pin-red); }
+.viewer__finish {
+  appearance: none;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+.viewer__finish:hover { background: #fff; color: #101214; border-color: #fff; }
+
+/* Bigger, steadier arrows */
+.viewer__arrow { width: 54px; height: 54px; font-size: 21px; background: rgba(16,18,20,0.55); border-color: rgba(255,255,255,0.4); }
+@media (max-width: 720px) {
+  .viewer__arrow { width: 44px; height: 44px; }
+  .viewer__meta { gap: 6px 12px; }
+  .viewer__phases { order: 3; flex-basis: 100%; }
+}

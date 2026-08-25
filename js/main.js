@@ -232,13 +232,38 @@
       <p class="viewer__eyebrow"></p>
       <h2 class="viewer__title"></h2>
       <p class="viewer__desc"></p>
+      <div class="viewer__meta">
+        <span class="viewer__count" aria-live="polite"></span>
+        <nav class="viewer__phases" aria-label="Jump to a construction phase"></nav>
+        <button class="viewer__finish" type="button" hidden>See it finished &rarr;</button>
+      </div>
     </div>
     <button class="viewer__arrow viewer__arrow--prev" data-vstep="-1" aria-label="Previous photo">&larr;</button>
     <div class="viewer__rail"></div>
     <button class="viewer__arrow viewer__arrow--next" data-vstep="1" aria-label="Next photo">&rarr;</button>`;
   document.body.appendChild(viewer);
   const vRail = viewer.querySelector(".viewer__rail");
+  const vCount = viewer.querySelector(".viewer__count");
+  const vPhases = viewer.querySelector(".viewer__phases");
+  const vFinish = viewer.querySelector(".viewer__finish");
   let vReturn = null;
+  let vList = [];
+
+  // Display names for the phase slugs used in the project data.
+  const PHASE_LABEL = {
+    before: "Before", demo: "Demo", framing: "Framing", waterproofing: "Waterproofing",
+    drywall: "Drywall", tile: "Tile", flooring: "Flooring", painting: "Paint",
+    kitchen: "Kitchen", railing: "Railing", deck: "Deck", siding: "Siding",
+    exterior: "Exterior", after: "Finished"
+  };
+
+  function updateViewerUI() {
+    if (!vList.length) return;
+    vCount.textContent = (vPos + 1) + " / " + vList.length;
+    const cur = vList[vPos] && vList[vPos].phase;
+    vPhases.querySelectorAll("button").forEach((b) =>
+      b.classList.toggle("is-active", b.dataset.phase === cur));
+  }
 
   function openViewer(i, startAt) {
     const p = projects[i];
@@ -253,11 +278,22 @@
     vRail.innerHTML = list.map((g) => `
       <figure class="viewer__fig">
         <div class="viewer__imgwrap">
-          <img src="${g.src}" alt="${g.cap || p.name}">
-          ${g.phase ? `<span class="viewer__phase viewer__phase--${g.phase}">${g.phase}</span>` : ""}
+          <img src="${g.src}" alt="${g.cap || p.name}" loading="lazy" decoding="async">
+          ${g.phase ? `<span class="viewer__phase viewer__phase--${g.phase}">${PHASE_LABEL[g.phase] || g.phase}</span>` : ""}
           ${g.cap ? `<figcaption class="viewer__cap">${g.cap}</figcaption>` : ""}
         </div>
       </figure>`).join("");
+    vList = list;
+    // Phase timeline: unique phases in the order they occur; tap to jump.
+    const seen = [];
+    list.forEach((g, n) => {
+      if (g.phase && !seen.some((s) => s.phase === g.phase)) seen.push({ phase: g.phase, at: n });
+    });
+    vPhases.innerHTML = seen.map((s) =>
+      `<button type="button" data-phase="${s.phase}" data-goto="${s.at}">${PHASE_LABEL[s.phase] || s.phase}</button>`).join("");
+    const firstAfter = list.findIndex((g) => g.phase === "after");
+    vFinish.hidden = firstAfter < 1;
+    vFinish.dataset.goto = Math.max(0, firstAfter);
     stop();
     viewer.classList.add("is-open");
     viewer.setAttribute("aria-hidden", "false");
@@ -266,6 +302,7 @@
       vPos = Math.min(vRail.children.length - 1, Math.max(0, startAt || 0));
       const fig = vRail.children[vPos];
       if (fig) vRail.scrollLeft = Math.max(0, fig.offsetLeft - V_PAD);
+      updateViewerUI();
     });
     vHeldUntil = 0;
     vPlay();
@@ -290,6 +327,7 @@
     // instead of stalling on the last photograph.
     vPos = ((k % figs.length) + figs.length) % figs.length;
     vRail.scrollTo({ left: Math.max(0, figs[vPos].offsetLeft - V_PAD), behavior: "smooth" });
+    updateViewerUI();
   }
   // Track position explicitly rather than deriving it from scrollLeft: CSS
   // scroll-snap re-settles the rail after each programmatic scroll, so a
@@ -315,11 +353,30 @@
   const nudgeViewer = (dir) => { vHeldUntil = Date.now() + V_NUDGE_HOLD; stepViewer(dir); };
   vRail.addEventListener("wheel", () => { vHeldUntil = Date.now() + V_NUDGE_HOLD; }, { passive: true });
   vRail.addEventListener("pointerdown", () => { vHeldUntil = Date.now() + V_NUDGE_HOLD; }, { passive: true });
+  // Touch/trackpad scrolling moves the rail without goViewer, so re-derive
+  // the position from wherever the rail settles and keep the UI in sync.
+  let vScrollFrame = 0;
+  vRail.addEventListener("scroll", () => {
+    if (vScrollFrame) return;
+    vScrollFrame = requestAnimationFrame(() => {
+      vScrollFrame = 0;
+      const figs = vRail.children;
+      if (!figs.length) return;
+      let best = 0, bestD = Infinity;
+      for (let n = 0; n < figs.length; n++) {
+        const d = Math.abs(figs[n].offsetLeft - V_PAD - vRail.scrollLeft);
+        if (d < bestD) { bestD = d; best = n; }
+      }
+      if (best !== vPos) { vPos = best; updateViewerUI(); }
+    });
+  }, { passive: true });
 
   viewer.addEventListener("click", (e) => {
     if (e.target.closest("[data-vclose]")) return closeViewer();
     const st = e.target.closest("[data-vstep]");
     if (st) return nudgeViewer(+st.dataset.vstep);
+    const jump = e.target.closest("[data-goto]");
+    if (jump) { vHeldUntil = Date.now() + V_NUDGE_HOLD; return goViewer(+jump.dataset.goto); }
     if (e.target === viewer) closeViewer();
   });
   document.addEventListener("keydown", (e) => {
